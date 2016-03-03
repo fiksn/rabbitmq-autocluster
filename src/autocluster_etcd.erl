@@ -149,7 +149,7 @@ extract_nodes(Miss) ->
 get_node_from_key(<<"/", V/binary>>) -> get_node_from_key(V);
 get_node_from_key(V) ->
   Path = string:concat(autocluster_httpc:build_path(lists:sublist(base_path(), 3, 2)), "/"),
-  autocluster_util:node_name(string:substr(binary_to_list(V), length(Path))).
+  autocluster_util:node_name(string:substr(binary_to_list(V), length(Path)+1)).
 
 
 %% @spec make_etcd_directory() -> list()
